@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dopamine 101: Interactive Masterclass</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f3ff',
+                            100: '#e1e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .slide-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="h-screen w-screen overflow-hidden flex flex-col justify-between select-none">
+
+    <!-- Top Header Navigation -->
+    <header class="w-full px-6 py-4 glass-card border-b border-slate-800 flex items-center justify-between z-20">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-white">Dopamine 101</h1>
+                <p class="text-xs text-slate-400">Understanding Motivation, Habits & Focus</p>
+            </div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="hidden sm:flex items-center gap-2 bg-slate-900/80 px-4 py-2 rounded-full border border-slate-800">
+            <span id="slide-number-badge" class="text-xs font-semibold text-indigo-400">Slide 1 of 7</span>
+            <div class="w-32 bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div id="progress-bar" class="bg-gradient-to-r from-indigo-500 to-purple-500 h-full w-1/7 transition-all duration-300"></div>
+            </div>
+        </div>
+
+        <!-- Utility Buttons -->
+        <div class="flex items-center gap-2">
+            <button onclick="toggleSound()" id="sound-btn" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition" title="Toggle Audio FX">
+                <svg id="sound-icon-on" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072M17.586 6.414a9 9 0 010 12.728M11 5L6 9H2v6h4l5 4V5z"/>
+                </svg>
+                <svg id="sound-icon-off" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Presentation Container -->
+    <main class="relative flex-1 w-full max-w-6xl mx-auto p-4 md:p-8 flex items-center justify-center overflow-y-auto">
+        
+        <!-- SLIDE 1: Introduction & Myth Busting -->
+        <section id="slide-0" class="slide-view w-full space-y-6">
+            <div class="text-center space-y-3">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 1: The Basics</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">What is <span class="gradient-text">Dopamine</span> Really?</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-base md:text-lg">Most people think dopamine is the feeling of pleasure. Neuroscientists know it is actually something far more powerful.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Myth Box -->
+                <div class="glass-card p-6 rounded-2xl border-rose-500/20 hover:border-rose-500/40 transition group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold text-xl">✕</div>
+                        <h3 class="text-lg font-bold text-rose-300">The Common Myth</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        "Dopamine is released when you get a reward (like eating chocolate, winning money, or getting likes). It's the 'pleasure chemical' that makes you happy."
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-rose-400/80 font-medium">
+                        Result of this view: People try to chase pleasure spikes to feel motivated.
+                    </div>
+                </div>
+
+                <!-- Reality Box -->
+                <div class="glass-card p-6 rounded-2xl border-emerald-500/20 hover:border-emerald-500/40 transition group">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-xl">✓</div>
+                        <h3 class="text-lg font-bold text-emerald-300">The Neuroscience Reality</h3>
+                    </div>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+                        Dopamine is the neurotransmitter of <span class="text-white font-semibold">ANTICIPATION, WANTING, and MOTIVATION</span>. It drives you to go get the reward—not the enjoyment of having it.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-emerald-400/80 font-medium">
+                        Real key: Dopamine is the engine that moves you toward goals.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analogy Callout -->
+            <div class="glass-card p-5 rounded-2xl bg-indigo-950/20 border-indigo-500/20 flex flex-col md:flex-row items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center flex-shrink-0 text-2xl">
+                    🥕
+                </div>
+                <div>
+                    <h4 class="font-bold text-indigo-200 text-sm uppercase tracking-wider">Simple Metaphor</h4>
+                    <p class="text-slate-300 text-sm">
+                        Dopamine is <strong class="text-indigo-400">the impulse to reach for the carrot</strong>. The actual taste of eating the carrot is handled by opioids and endorphins in the brain ("Liking"). Dopamine is pure "Wanting."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Wanting vs Liking -->
+        <section id="slide-1" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-3">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 2: The Two Brain Engines</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">"Wanting" vs. "Liking"</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm md:text-base">Why you can crave something intensely, yet feel completely hollow once you get it.</p>
+            </div>
+
+            <!-- Interactive Toggle Comparison -->
+            <div class="glass-card p-6 md:p-8 rounded-2xl space-y-6">
+                <div class="flex justify-center gap-4">
+                    <button id="btn-wanting" onclick="switchBrainEngine('wanting')" class="px-5 py-2.5 rounded-xl font-bold text-sm transition bg-indigo-600 text-white shadow-lg shadow-indigo-500/30">
+                        ⚡ Wanting (Dopamine Engine)
+                    </button>
+                    <button id="btn-liking" onclick="switchBrainEngine('liking')" class="px-5 py-2.5 rounded-xl font-bold text-sm transition bg-slate-800 text-slate-400 hover:text-white">
+                        ❤️ Liking (Opioid/Serotonin System)
+                    </button>
+                </div>
+
+                <div id="engine-content" class="bg-slate-900/90 p-6 rounded-xl border border-slate-800 min-h-[220px] flex flex-col justify-center space-y-4">
+                    <!-- Dynamic Content inserted via JS -->
+                </div>
+            </div>
+
+            <!-- Key Insight Callout -->
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200 text-xs md:text-sm flex items-start gap-3">
+                <span class="text-xl">💡</span>
+                <p>
+                    <strong>Why this matters for your life:</strong> Addictive behaviors (doomscrolling, compulsive shopping, video games) hijack the <em>Wanting</em> circuit. They trigger massive dopamine without providing genuine <em>Liking</em> or contentment!
+                </p>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Reward Prediction Error (RPE) Live Interactive Lab -->
+        <section id="slide-2" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 3: The Brain's Math</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Reward Prediction Error (RPE)</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Dopamine fires based on <strong>SURPRISE</strong>, not just getting a reward!</p>
+            </div>
+
+            <!-- RPE Interactive Simulator -->
+            <div class="glass-card p-6 rounded-2xl space-y-6 border-indigo-500/30">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <!-- Controls -->
+                    <div class="space-y-3 flex flex-col justify-center">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Simulate a Scenario:</h4>
+                        <button onclick="runRPESimulation('unexpected')" class="w-full text-left p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 transition flex items-center justify-between group">
+                            <div>
+                                <div class="font-bold text-sm text-indigo-300">1. Unexpected Reward</div>
+                                <div class="text-xs text-slate-400">Surprise bonus!</div>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-md font-mono">+Dopamine</span>
+                        </button>
+
+                        <button onclick="runRPESimulation('expected')" class="w-full text-left p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 transition flex items-center justify-between group">
+                            <div>
+                                <div class="font-bold text-sm text-sky-300">2. Fully Expected Reward</div>
+                                <div class="text-xs text-slate-400">Got exactly what you expected</div>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-md font-mono">Neutral</span>
+                        </button>
+
+                        <button onclick="runRPESimulation('disappointment')" class="w-full text-left p-3.5 rounded-xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 transition flex items-center justify-between group">
+                            <div>
+                                <div class="font-bold text-sm text-rose-300">3. Expected Reward Omitted</div>
+                                <div class="text-xs text-slate-400">Promised treat was taken away</div>
+                            </div>
+                            <span class="text-xs px-2 py-1 bg-rose-500/20 text-rose-400 rounded-md font-mono">-Dopamine Crash</span>
+                        </button>
+                    </div>
+
+                    <!-- Visualization Canvas / Graphic -->
+                    <div class="lg:col-span-2 bg-slate-950 p-6 rounded-xl border border-slate-800 flex flex-col justify-between space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-400">FORMULA: <span class="text-indigo-400">RPE = Actual Reward - Expected Reward</span></span>
+                            <span id="rpe-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-800 text-slate-300">Select a scenario</span>
+                        </div>
+
+                        <!-- Animated Spike Container -->
+                        <div class="relative h-40 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-center px-4 overflow-hidden">
+                            <!-- Baseline indicator line -->
+                            <div class="absolute w-full border-b border-dashed border-slate-700 top-1/2 left-0 z-0"></div>
+                            <span class="absolute left-2 top-[48%] text-[10px] font-mono text-slate-500 z-10">Tonic Baseline</span>
+                            
+                            <!-- Dynamic Curve SVG -->
+                            <svg id="rpe-svg" class="w-full h-full relative z-10" viewBox="0 0 400 120" preserveAspectRatio="none">
+                                <path id="rpe-path" d="M 0 60 L 150 60 L 200 60 L 250 60 L 400 60" fill="none" stroke="#6366f1" stroke-width="3"/>
+                            </svg>
+                        </div>
+
+                        <!-- Explanation text box -->
+                        <div id="rpe-explanation" class="text-sm text-slate-300 bg-slate-900/60 p-3 rounded-lg border border-slate-800/80">
+                            Click one of the buttons on the left to see how midbrain dopamine neurons fire electrophysiologically!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: The Modern Trap (Variable Reinforcement) -->
+        <section id="slide-3" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 4: The Trap</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Why We Can't Stop Scrolling</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">How social media apps turn your brain into a casino slot machine.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <!-- Interactive Phone Simulator -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col items-center justify-center space-y-4">
+                    <div class="w-64 bg-slate-950 rounded-3xl p-4 border-4 border-slate-800 shadow-2xl space-y-3">
+                        <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2"></div>
+                        
+                        <!-- Scroll Content Area -->
+                        <div id="phone-feed" class="h-56 bg-slate-900 rounded-xl p-3 overflow-hidden flex flex-col items-center justify-center space-y-2 border border-slate-800">
+                            <span class="text-4xl">📱</span>
+                            <p id="feed-text" class="text-xs text-center text-slate-400">Swipe or click pull feed to check for rewards!</p>
+                        </div>
+
+                        <!-- Swipe Action Button -->
+                        <button onclick="pullFeed()" class="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 font-bold text-xs rounded-xl shadow-lg shadow-indigo-500/20 active:scale-95 transition">
+                            ⚡ Pull Social Feed (Swipe)
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <span class="text-xs font-semibold text-slate-400">Dopamine Pulses Triggered: <strong id="pull-count" class="text-indigo-400">0</strong></span>
+                    </div>
+                </div>
+
+                <!-- Explanation of Variable Reward Schedule -->
+                <div class="space-y-4">
+                    <div class="glass-card p-5 rounded-xl space-y-2 border-slate-800">
+                        <h4 class="font-bold text-white text-base flex items-center gap-2">
+                            <span>🎰</span> The Variable-Ratio Schedule
+                        </h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                            If you got a viral video or notification <em>every single time</em> you swiped, your brain would quickly expect it ($RPE = 0$) and get bored.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-5 rounded-xl space-y-2 border-indigo-500/30 bg-indigo-950/20">
+                        <h4 class="font-bold text-indigo-300 text-base flex items-center gap-2">
+                            <span>⚡</span> The Unpredictability Surge
+                        </h4>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">
+                            Because you don't know if the next swipe will be boring or amazing, your brain stays in a continuous state of **anticipatory dopamine elevation**. This creates compulsive habit loops.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400">
+                        <strong>Prefrontal Fatigue:</strong> As you keep scrolling, your brain's willpower center gets tired from processing micro-decisions. You scroll not because it's fun, but because you're too exhausted to stop.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Receptor Downregulation & Baseline Suppression -->
+        <section id="slide-4" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 5: Brain Tolerance</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Downregulation & Anhedonia</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Why high stimulation leaves you feeling unmotivated for normal life.</p>
+            </div>
+
+            <!-- Interactive Receptor Slider -->
+            <div class="glass-card p-6 rounded-2xl space-y-6">
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-sm font-semibold">
+                        <span class="text-slate-300">Level of Daily Digital Stimulation:</span>
+                        <span id="stim-level-text" class="text-indigo-400 font-bold">Moderate</span>
+                    </div>
+                    <input type="range" id="stim-slider" min="1" max="5" value="2" oninput="updateReceptorState(this.value)" class="w-full accent-indigo-500 cursor-pointer">
+                    <div class="flex justify-between text-[11px] text-slate-500 font-mono">
+                        <span>1. Low (Natural)</span>
+                        <span>3. High (Social Media/Gaming)</span>
+                        <span>5. Extreme (Hyper-Stimulation)</span>
+                    </div>
+                </div>
+
+                <!-- Visual Brain Simulation Card -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <!-- Receptors Visualizer -->
+                    <div class="text-center space-y-3">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Brain's D2 Receptors Density</h4>
+                        <div id="receptor-grid" class="grid grid-cols-5 gap-3 p-4 bg-slate-900 rounded-xl justify-items-center">
+                            <!-- Populated by JS -->
+                        </div>
+                        <p id="receptor-status-text" class="text-xs text-slate-400">Receptor levels are normal. Healthy baseline focus.</p>
+                    </div>
+
+                    <!-- Baseline Thermometer -->
+                    <div class="space-y-3">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Tonic Baseline Dopamine Tone</h4>
+                        <div class="h-6 bg-slate-900 rounded-full overflow-hidden p-1 border border-slate-800">
+                            <div id="baseline-bar" class="h-full bg-emerald-500 rounded-full transition-all duration-500 w-3/4"></div>
+                        </div>
+                        <div class="text-xs text-slate-300 space-y-2">
+                            <p id="motivation-text"><strong>Impact on work:</strong> Standard tasks like studying or reading feel engaging and manageable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-4 rounded-xl border-amber-500/20 bg-amber-950/10 text-xs md:text-sm text-amber-200/90 flex items-center gap-3">
+                <span class="text-2xl">📉</span>
+                <div>
+                    <strong>The Reward Scale Paradox:</strong> When your brain expects an artificial 90/100 stimulation from screens, working on a project that gives a 15/100 reward feels like a negative prediction error ($RPE < 0$), causing instant boredom and brain fog!
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: Actionable Restoration Protocols -->
+        <section id="slide-5" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 6: Solutions</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Evidence-Based Reset Protocols</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">4 proven neurobiological strategies to restore sensitivity, focus, and drive.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Protocol 1 -->
+                <div class="glass-card p-5 rounded-2xl space-y-3 border-indigo-500/20 hover:border-indigo-500/40 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 font-bold flex items-center justify-center text-sm">1</div>
+                        <h3 class="font-bold text-white text-base">The 14 to 30-Day Reset</h3>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        It takes 2-4 weeks of reducing hyper-stimulating super-stimuli (infinite feeds, adult media, rapid video games) for postsynaptic D2 receptors to resensitize and bring baseline dopamine back to normal levels.
+                    </p>
+                    <span class="inline-block px-2.5 py-1 rounded-md bg-indigo-950 text-indigo-300 text-[11px] font-mono border border-indigo-800/50">Target: D2 Receptor Resensitization</span>
+                </div>
+
+                <!-- Protocol 2 (With Interactive Timer) -->
+                <div class="glass-card p-5 rounded-2xl space-y-3 border-purple-500/20 hover:border-purple-500/40 transition">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">2</div>
+                            <h3 class="font-bold text-white text-base">Urge Surfing Protocol</h3>
+                        </div>
+                        <button onclick="toggleUrgeTimer()" id="urge-btn" class="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-semibold transition">
+                            Try 1-Min Demo
+                        </button>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Cravings last as physical waves in the body for 15-30 minutes. Don't fight them with raw willpower. Observe physical body sensations without acting until the wave passes.
+                    </p>
+                    <div id="urge-timer-box" class="hidden p-3 bg-slate-900 rounded-xl border border-purple-500/30 text-center space-y-1">
+                        <div class="text-xs font-mono text-purple-300">Surfing the Craving Wave...</div>
+                        <div id="urge-time" class="text-xl font-bold font-mono text-white">01:00</div>
+                        <div class="text-[10px] text-slate-400">Focus on physical breath & body sensations without reacting</div>
+                    </div>
+                </div>
+
+                <!-- Protocol 3 -->
+                <div class="glass-card p-5 rounded-2xl space-y-3 border-emerald-500/20 hover:border-emerald-500/40 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">3</div>
+                        <h3 class="font-bold text-white text-base">Environmental Friction Architecture</h3>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Willpower is limited. Remove sensory cues (put phone in another room during work). Add multi-step friction to bad habits (log out after every session, use website blockers).
+                    </p>
+                    <span class="inline-block px-2.5 py-1 rounded-md bg-emerald-950 text-emerald-300 text-[11px] font-mono border border-emerald-800/50">Target: Prevents Cue-Triggered Spikes</span>
+                </div>
+
+                <!-- Protocol 4 -->
+                <div class="glass-card p-5 rounded-2xl space-y-3 border-sky-500/20 hover:border-sky-500/40 transition">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm">4</div>
+                        <h3 class="font-bold text-white text-base">"Here-and-Now" Activation</h3>
+                    </div>
+                    <p class="text-slate-300 text-xs leading-relaxed">
+                        Engage neurochemical pathways that build genuine contentment (Serotonin, Oxytocin, Endorphins): face-to-face social contact, physical workouts, deep reading, and hands-on hobbies.
+                    </p>
+                    <span class="inline-block px-2.5 py-1 rounded-md bg-sky-950 text-sky-300 text-[11px] font-mono border border-sky-800/50">Target: Hedonic Balance & Deep Satisfaction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: Interactive Personal Audit & Action Blueprint -->
+        <section id="slide-6" class="slide-view w-full space-y-6 hidden">
+            <div class="text-center space-y-2">
+                <span class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/60 rounded-full border border-indigo-800/50">Module 7: Action Plan</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Your Personal Dopamine Audit</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto text-sm">Select the daily practices you will commit to starting today:</p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">No screens for first 30 mins after waking</div>
+                            <div class="text-[11px] text-slate-400">Protects your baseline dopamine tone from morning spikes.</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">Phone placed in another room during focus work</div>
+                            <div class="text-[11px] text-slate-400">Eliminates sensory cues that trigger expectation transfer.</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">14-Day digital feed / infinite scroll fast</div>
+                            <div class="text-[11px] text-slate-400">Allows downregulated D2 receptors to rebuild density.</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">Practice 15-min Urge Surfing during cravings</div>
+                            <div class="text-[11px] text-slate-400">Decouples trigger cues from automatic motor habits.</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">Daily exercise or physical skill practice</div>
+                            <div class="text-[11px] text-slate-400">Builds organic effort-reward connection.</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800 cursor-pointer hover:border-indigo-500/50 transition">
+                        <input type="checkbox" onchange="updateAuditScore()" class="audit-check mt-1 accent-indigo-500 rounded">
+                        <div>
+                            <div class="text-xs font-bold text-white">Replace screen time with face-to-face interaction</div>
+                            <div class="text-[11px] text-slate-400">Stimulates serotonin and oxytocin networks.</div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Audit Result Card -->
+                <div class="p-4 rounded-xl bg-indigo-950/40 border border-indigo-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-bold text-indigo-300 text-sm">Your Mindset Score:</h4>
+                        <p id="audit-feedback" class="text-xs text-slate-300">Select checkboxes above to calculate your commitment level.</p>
+                    </div>
+                    <div id="audit-score-badge" class="px-4 py-2 rounded-xl bg-slate-800 font-extrabold text-indigo-400 text-lg border border-indigo-500/30">
+                        0 / 6 Protocols
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation Toolbar -->
+    <footer class="w-full px-6 py-4 glass-card border-t border-slate-800 flex items-center justify-between z-20">
+        <button id="prev-btn" onclick="prevSlide()" class="px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Previous
+        </button>
+
+        <div class="flex items-center gap-1">
+            <template id="dot-template">
+                <button class="w-2.5 h-2.5 rounded-full bg-slate-700 transition-all"></button>
+            </template>
+            <div id="slide-dots" class="flex items-center gap-1.5"></div>
+        </div>
+
+        <button id="next-btn" onclick="nextSlide()" class="px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/20 transition flex items-center gap-2">
+            Next
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // State Variables
+        let currentSlide = 0;
+        const totalSlides = 7;
+        let soundEnabled = true;
+
+        // Sound FX Synthesizer using Web Audio API
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                if (type === 'next') {
+                    osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.1);
+                } else if (type === 'reward') {
+                    osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08); // E5
+                    osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.16); // G5
+                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.3);
+                } else if (type === 'dip') {
+                    osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.2);
+                    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.2);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.2);
+                }
+            } catch(e){}
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-icon-on').classList.toggle('hidden', !soundEnabled);
+            document.getElementById('sound-icon-off').classList.toggle('hidden', soundEnabled);
+        }
+
+        // Initialize Slides & Navigation
+        function updateSlideView() {
+            for (let i = 0; i < totalSlides; i++) {
+                const slideEl = document.getElementById(`slide-${i}`);
+                if (slideEl) {
+                    if (i === currentSlide) {
+                        slideEl.classList.remove('hidden');
+                    } else {
+                        slideEl.classList.add('hidden');
+                    }
+                }
+            }
+
+            // Update Header & Footer Controls
+            document.getElementById('slide-number-badge').innerText = `Slide ${currentSlide + 1} of ${totalSlides}`;
+            document.getElementById('progress-bar').style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+            document.getElementById('prev-btn').disabled = (currentSlide === 0);
+            
+            const nextBtn = document.getElementById('next-btn');
+            if (currentSlide === totalSlides - 1) {
+                nextBtn.innerText = "Finish Masterclass";
+            } else {
+                nextBtn.innerHTML = `Next <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`;
+            }
+
+            // Update Dots Navigation
+            renderDots();
+        }
+
+        function renderDots() {
+            const dotsContainer = document.getElementById('slide-dots');
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-indigo-500 w-6' : 'bg-slate-700 hover:bg-slate-500'}`;
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                playSound('next');
+                updateSlideView();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                playSound('next');
+                updateSlideView();
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            playSound('next');
+            updateSlideView();
+        }
+
+        // SLIDE 2: Wanting vs Liking Switcher
+        const engineData = {
+            wanting: {
+                title: "The Wanting System (Dopamine)",
+                neurochemical: "Dopamine (VTA -> Nucleus Accumbens -> Prefrontal Cortex)",
+                description: "Dopamine creates the drive, focus, and restless urge to reach out and get a goal. It is active BEFORE you get the reward.",
+                example: "Think about scrolling through food delivery app photos when hungry. The mouth-watering anticipation is dopamine.",
+                color: "text-indigo-400"
+            },
+            liking: {
+                title: "The Liking System (Opioids & Serotonin)",
+                neurochemical: "Mu-opioid receptors, Endocannabinoids, Serotonin",
+                description: "This system handles the actual subjective pleasure, cozy feeling, and baseline satisfaction when consuming the reward.",
+                example: "The warm feeling while taking the first bite of food. That is liking, not dopamine.",
+                color: "text-rose-400"
+            }
+        };
+
+        function switchBrainEngine(type) {
+            const data = engineData[type];
+            const content = document.getElementById('engine-content');
+            
+            document.getElementById('btn-wanting').className = type === 'wanting' 
+                ? "px-5 py-2.5 rounded-xl font-bold text-sm transition bg-indigo-600 text-white shadow-lg shadow-indigo-500/30"
+                : "px-5 py-2.5 rounded-xl font-bold text-sm transition bg-slate-800 text-slate-400 hover:text-white";
+
+            document.getElementById('btn-liking').className = type === 'liking'
+                ? "px-5 py-2.5 rounded-xl font-bold text-sm transition bg-rose-600 text-white shadow-lg shadow-rose-500/30"
+                : "px-5 py-2.5 rounded-xl font-bold text-sm transition bg-slate-800 text-slate-400 hover:text-white";
+
+            content.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-bold ${data.color}">${data.title}</h3>
+                    <span class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 font-mono">${data.neurochemical}</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed">${data.description}</p>
+                <div class="p-3 bg-slate-950/80 rounded-lg border border-slate-800 text-xs text-slate-400 italic">
+                    📌 <strong>Real-world Example:</strong> ${data.example}
+                </div>
+            `;
+            playSound('next');
+        }
+
+        // SLIDE 3: Reward Prediction Error (RPE) Logic
+        function runRPESimulation(type) {
+            const svgPath = document.getElementById('rpe-path');
+            const badge = document.getElementById('rpe-badge');
+            const exp = document.getElementById('rpe-explanation');
+
+            if (type === 'unexpected') {
+                // Spike UP
+                svgPath.setAttribute('d', 'M 0 60 L 150 60 Q 180 10 200 10 Q 220 110 250 60 L 400 60');
+                svgPath.setAttribute('stroke', '#10b981');
+                badge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+                badge.innerText = 'Positive RPE (+ Spike)';
+                exp.innerHTML = '<strong>Surprise Reward!</strong> Dopamine fires intensely above baseline firing rate. Your brain updates its map: <em>"Remember what we just did, that gave a huge unexpected reward!"</em>';
+                playSound('reward');
+            } else if (type === 'expected') {
+                // Flat Baseline
+                svgPath.setAttribute('d', 'M 0 60 L 150 60 L 200 60 L 250 60 L 400 60');
+                svgPath.setAttribute('stroke', '#0ea5e9');
+                badge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-400 border border-sky-500/30';
+                badge.innerText = 'Zero RPE (Flat Baseline)';
+                exp.innerHTML = '<strong>Expected Outcome:</strong> The reward was fully predicted. Dopamine stays flat at baseline. No new learning signal is created because there was no surprise.';
+                playSound('next');
+            } else if (type === 'disappointment') {
+                // Dip DOWN
+                svgPath.setAttribute('d', 'M 0 60 L 150 60 Q 180 110 200 110 Q 220 10 250 60 L 400 60');
+                svgPath.setAttribute('stroke', '#f43f5e');
+                badge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30';
+                badge.innerText = 'Negative RPE (- Dip Below Baseline)';
+                exp.innerHTML = '<strong>Disappointment:</strong> You expected a reward (or dopamine cue), but didn’t get it! Dopamine drops below tonic baseline, causing an immediate feeling of restlessness and psychological letdown.';
+                playSound('dip');
+            }
+        }
+
+        // SLIDE 4: Feed Pull Simulator
+        let pulls = 0;
+        const feedOutcomes = [
+            { icon: "🥱", text: "Boring post (No reward)", type: "low" },
+            { icon: "🐱", text: "Cute cat video (+Small hit)", type: "med" },
+            { icon: "🥱", text: "Ad for socks (No reward)", type: "low" },
+            { icon: "🔥", text: "VIRAL DRAMA POST! (+Huge Positive RPE)", type: "high" },
+            { icon: "🥱", text: "Random quote (No reward)", type: "low" }
+        ];
+
+        function pullFeed() {
+            pulls++;
+            document.getElementById('pull-count').innerText = pulls;
+            const feedContainer = document.getElementById('phone-feed');
+            const outcome = feedOutcomes[Math.floor(Math.random() * feedOutcomes.length)];
+            
+            feedContainer.innerHTML = `
+                <span class="text-4xl transform scale-125 transition duration-300">${outcome.icon}</span>
+                <p class="text-xs text-center font-bold ${outcome.type === 'high' ? 'text-indigo-400' : outcome.type === 'med' ? 'text-emerald-400' : 'text-slate-400'}">${outcome.text}</p>
+            `;
+
+            if (outcome.type === 'high') playSound('reward');
+            else if (outcome.type === 'med') playSound('next');
+            else playSound('dip');
+        }
+
+        // SLIDE 5: Receptor Downregulation Logic
+        function updateReceptorState(val) {
+            const grid = document.getElementById('receptor-grid');
+            const statusText = document.getElementById('receptor-status-text');
+            const baselineBar = document.getElementById('baseline-bar');
+            const motivationText = document.getElementById('motivation-text');
+            const stimText = document.getElementById('stim-level-text');
+
+            grid.innerHTML = '';
+            
+            // Total receptors available decreases as stimulation increases
+            const totalReceptors = 15;
+            const activeReceptors = Math.max(3, 16 - (val * 2.5));
+            
+            for (let i = 0; i < totalReceptors; i++) {
+                const isPresent = i < activeReceptors;
+                const dot = document.createElement('div');
+                dot.className = `w-6 h-6 rounded-full transition-all duration-300 flex items-center justify-center text-[10px] font-bold ${isPresent ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/40' : 'bg-slate-800 text-slate-600 border border-slate-800'}`;
+                dot.innerText = isPresent ? 'D2' : '✕';
+                grid.appendChild(dot);
+            }
+
+            const labels = ["Low (Natural)", "Moderate", "High", "Very High", "Extreme Hyper-Stimulation"];
+            stimText.innerText = labels[val - 1];
+
+            // Adjust baseline gauge width & color
+            const percentage = Math.max(20, 100 - ((val - 1) * 18));
+            baselineBar.style.width = `${percentage}%`;
+            
+            if (val <= 2) {
+                baselineBar.className = "h-full bg-emerald-500 rounded-full transition-all duration-500";
+                statusText.innerText = "Receptor density is optimal. Brain can derive satisfaction from simple tasks.";
+                motivationText.innerHTML = "<strong>Impact on work:</strong> Healthy motivation baseline. Everyday tasks (reading, studying, cooking) feel rewarding.";
+            } else if (val == 3) {
+                baselineBar.className = "h-full bg-amber-500 rounded-full transition-all duration-500";
+                statusText.innerText = "Mild downregulation. Requires higher stimulation to feel interested.";
+                motivationText.innerHTML = "<strong>Impact on work:</strong> Standard tasks feel somewhat boring or tedious. Frequent urge to check phone.";
+            } else {
+                baselineBar.className = "h-full bg-rose-500 rounded-full transition-all duration-500";
+                statusText.innerText = "Severe D2 Downregulation! Receptors are submerged to protect cells from over-firing.";
+                motivationText.innerHTML = "<strong>Impact on work:</strong> Clinical Anhedonia / Brain Fog. Effortful tasks cause severe aversion and executive paralysis.";
+            }
+        }
+
+        // SLIDE 6: Urge Surfing Timer Logic
+        let urgeInterval = null;
+        let urgeTimeLeft = 60;
+
+        function toggleUrgeTimer() {
+            const box = document.getElementById('urge-timer-box');
+            const btn = document.getElementById('urge-btn');
+
+            if (box.classList.contains('hidden')) {
+                box.classList.remove('hidden');
+                btn.innerText = "Stop Demo";
+                startUrgeTimer();
+            } else {
+                box.classList.add('hidden');
+                btn.innerText = "Try 1-Min Demo";
+                clearInterval(urgeInterval);
+            }
+        }
+
+        function startUrgeTimer() {
+            urgeTimeLeft = 60;
+            clearInterval(urgeInterval);
+            urgeInterval = setInterval(() => {
+                urgeTimeLeft--;
+                const min = String(Math.floor(urgeTimeLeft / 60)).padStart(2, '0');
+                const sec = String(urgeTimeLeft % 60).padStart(2, '0');
+                document.getElementById('urge-time').innerText = `${min}:${sec}`;
+                
+                if (urgeTimeLeft <= 0) {
+                    clearInterval(urgeInterval);
+                    document.getElementById('urge-time').innerText = "Wave Passed!";
+                    playSound('reward');
+                }
+            }, 1000);
+        }
+
+        // SLIDE 7: Audit Score Logic
+        function updateAuditScore() {
+            const checkedCount = document.querySelectorAll('.audit-check:checked').length;
+            const badge = document.getElementById('audit-score-badge');
+            const feedback = document.getElementById('audit-feedback');
+
+            badge.innerText = `${checkedCount} / 6 Protocols`;
+
+            if (checkedCount === 0) {
+                feedback.innerText = "Select checkboxes above to calculate your commitment level.";
+                badge.className = "px-4 py-2 rounded-xl bg-slate-800 font-extrabold text-slate-400 text-lg border border-slate-700";
+            } else if (checkedCount <= 2) {
+                feedback.innerText = "Good start! You are taking first steps toward protecting your prefrontal attention.";
+                badge.className = "px-4 py-2 rounded-xl bg-amber-950 font-extrabold text-amber-400 text-lg border border-amber-800/50";
+            } else if (checkedCount <= 4) {
+                feedback.innerText = "Solid protocol! This will significantly reduce cue-triggered dopamine fatigue.";
+                badge.className = "px-4 py-2 rounded-xl bg-indigo-950 font-extrabold text-indigo-400 text-lg border border-indigo-800/50";
+            } else {
+                feedback.innerText = "Master Level Reset! This comprehensive strategy will rebuild D2 receptors and boost deep focus.";
+                badge.className = "px-4 py-2 rounded-xl bg-emerald-950 font-extrabold text-emerald-400 text-lg border border-emerald-800/50";
+            }
+            playSound('next');
+        }
+
+        // Keybindings & Touch Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize App on Load
+        window.onload = function() {
+            switchBrainEngine('wanting');
+            updateReceptorState(2);
+            updateSlideView();
+        };
+    </script>
+</body>
+</html>
