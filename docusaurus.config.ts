@@ -1,13 +1,15 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import htmlPagesPlugin from './plugins/html-pages';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Momentum',
+  tagline:
+    'A hub for self-improvement: notes, systems and experiments for getting a little better every week.',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,25 +17,42 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://momentum-hub.example.com',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'your-username',
+  projectName: 'momentum-hub',
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap',
+      },
+    },
+  ],
+
+  plugins: [htmlPagesPlugin],
 
   presets: [
     [
@@ -42,20 +61,21 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/your-username/momentum-hub/tree/main/',
         },
         blog: {
+          blogTitle: 'Essays',
+          blogDescription:
+            'Longer-form notes on habits, focus, energy and the slow work of getting better.',
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
           },
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/your-username/momentum-hub/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -69,27 +89,67 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    metadata: [
+      {
+        name: 'keywords',
+        content:
+          'self improvement, habits, focus, deep work, dopamine, sleep, learning, weekly review, personal growth',
+      },
+      {name: 'author', content: 'Momentum'},
+    ],
     colorMode: {
+      defaultMode: 'dark',
       respectPrefersColorScheme: true,
     },
+    announcementBar: {
+      id: 'start-here',
+      content:
+        'New here? Begin with <a href="/docs/intro">How this hub works</a> or skip to the <a href="/docs/toolkit/templates">templates</a>.',
+      backgroundColor: '#141026',
+      textColor: '#ded7ff',
+      isCloseable: true,
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 3,
+    },
     navbar: {
-      title: 'My Site',
+      title: 'Momentum',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Momentum logo',
         src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'hubSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Notes',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'Essays', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'dropdown',
+          label: 'Start here',
+          position: 'left',
+          items: [
+            {label: 'How this hub works', to: '/docs/intro'},
+            {label: 'The five pillars', to: '/docs/foundations/identity'},
+            {label: 'The weekly review', to: '/docs/systems/weekly-review'},
+            {label: 'Templates & checklists', to: '/docs/toolkit/templates'},
+            {
+              label: 'Dopamine 101 walkthrough',
+              to: '/html/dopamine-walkthrough',
+            },
+          ],
+        },
+        {
+          href: 'https://github.com/your-username/momentum-hub',
           label: 'GitHub',
           position: 'right',
         },
@@ -99,46 +159,36 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Explore',
           items: [
+            {label: 'Start here', to: '/docs/intro'},
+            {label: 'Essays', to: '/blog'},
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Dopamine 101 walkthrough',
+              to: '/html/dopamine-walkthrough',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'The pillars',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
+            {label: 'Foundations', to: '/docs/foundations/identity'},
+            {label: 'Systems & rituals', to: '/docs/systems/weekly-review'},
+            {label: 'Body & energy', to: '/docs/health/sleep'},
+            {label: 'Learning & thinking', to: '/docs/learning/learning-how-to-learn'},
+            {label: 'Toolkit', to: '/docs/toolkit/templates'},
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
+            {label: 'All tags', to: '/blog/tags'},
+            {label: 'Archive', to: '/blog/archive'},
+            {label: 'GitHub', href: 'https://github.com/your-username/momentum-hub'},
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Momentum. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

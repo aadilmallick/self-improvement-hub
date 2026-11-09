@@ -1,0 +1,11 @@
+{
+  "label": "Learning & thinking",
+  "position": 5,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Learning & thinking",
+    "description": "How to study, read, and keep notes so the knowledge actually shows up when you need it."
+  }
+}

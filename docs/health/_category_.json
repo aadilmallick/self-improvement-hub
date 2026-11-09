@@ -1,0 +1,11 @@
+{
+  "label": "Body & energy",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Body & energy",
+    "description": "Sleep, training, and the physical inputs that decide how the rest of the day goes."
+  }
+}

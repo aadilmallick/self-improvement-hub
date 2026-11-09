@@ -1,30 +1,238 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Momentum — global theme.
+ * Built on Infima (bundled with the Docusaurus classic template).
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Violet primary, cyan accent: high contrast, low boredom. */
+  --ifm-color-primary: #6d3ff0;
+  --ifm-color-primary-dark: #5c2ed6;
+  --ifm-color-primary-darker: #5529c6;
+  --ifm-color-primary-darkest: #451fa3;
+  --ifm-color-primary-light: #7d55f2;
+  --ifm-color-primary-lighter: #8b68f4;
+  --ifm-color-primary-lightest: #aa8df7;
+
+  --ifm-font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular,
+    Menlo, monospace;
+  --ifm-heading-font-weight: 800;
+  --ifm-heading-letter-spacing: -0.02em;
+
+  --hub-gradient: linear-gradient(135deg, #8b5cf6 0%, #6366f1 45%, #22d3ee 100%);
+  --hub-accent: #0891b2;
+  --hub-surface-border: rgba(109, 63, 240, 0.16);
+  --hub-radius: 18px;
+
+  --ifm-code-font-size: 94%;
+  --ifm-card-border-radius: var(--hub-radius);
+  --docusaurus-highlighted-code-line-bg: rgba(109, 63, 240, 0.1);
+
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.86);
+  --ifm-navbar-shadow: none;
+  --ifm-footer-background-color: #0d0a1f;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #a78bfa;
+  --ifm-color-primary-dark: #9373f8;
+  --ifm-color-primary-darker: #8866f7;
+  --ifm-color-primary-darkest: #6a3af4;
+  --ifm-color-primary-light: #bba4fb;
+  --ifm-color-primary-lighter: #c8b4fc;
+  --ifm-color-primary-lightest: #e9e0ff;
+
+  --ifm-background-color: #0b0a14;
+  --ifm-background-surface-color: #12101f;
+  --hub-accent: #67e8f9;
+  --hub-surface-border: rgba(167, 139, 250, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.18);
+
+  --ifm-navbar-background-color: rgba(11, 10, 20, 0.78);
+  --ifm-footer-background-color: #08070f;
+}
+
+[data-theme='dark'] {
+  --ifm-color-emphasis-200: #2a2540;
+  --ifm-color-emphasis-300: #37304f;
+}
+
+/* ------------------------------------------------------------------ *
+ * Chrome
+ * ------------------------------------------------------------------ */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.28);
+}
+
+.navbar {
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--hub-surface-border);
+}
+
+.navbar__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.navbar__link {
+  font-weight: 600;
+}
+
+.navbar__brand:hover {
+  color: inherit;
+}
+
+[class*='announcementBar'] {
+  border-bottom: 1px solid rgba(167, 139, 250, 0.25);
+  font-weight: 600;
+}
+
+[class*='announcementBar'] a {
+  color: #8be9fd;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer__title {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(222, 215, 255, 0.55);
+}
+
+.footer__link-item {
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------ *
+ * Content
+ * ------------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+.markdown > h2 {
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--hub-surface-border);
+}
+
+.markdown blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: rgba(109, 63, 240, 0.06);
+  border-radius: 0 12px 12px 0;
+  padding: 0.9rem 1.1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.markdown blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown table {
+  display: table;
+  width: 100%;
+  font-size: 0.94rem;
+}
+
+.markdown table thead tr {
+  background: rgba(109, 63, 240, 0.08);
+}
+
+[data-theme='dark'] .markdown table thead tr {
+  background: rgba(167, 139, 250, 0.12);
+}
+
+.markdown kbd {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  padding: 0.1em 0.4em;
+}
+
+.theme-admonition {
+  border-radius: 14px;
+}
+
+.theme-code-block {
+  border-radius: 14px;
+}
+
+/* Sidebar */
+.menu__link {
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  font-weight: 700;
+  background: rgba(109, 63, 240, 0.1);
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background: rgba(167, 139, 250, 0.14);
+}
+
+.menu__list-item-collapsible > .menu__link {
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.pagination-nav__link {
+  border-radius: 14px;
+  border-color: var(--hub-surface-border);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Blog */
+.blog-list-page article,
+.blog-post-page article {
+  border-radius: var(--hub-radius);
+}
+
+.blog-post-page .markdown > p:first-of-type {
+  font-size: 1.08rem;
+}
+
+/* Links get a subtle accent so long notes stay scannable. */
+.markdown a:not(.button):not(.card) {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+/* Immersive HTML pages (HTMLPage fullViewport) hide the announcement bar so the
+   iframe can fill exactly one viewport below the navbar. */
+body:has([data-html-page='full']) [class*='announcementBar'] {
+  display: none;
+}
+
+/* Little utilities used by the landing page. */
+.hub-gradient-text {
+  background: var(--hub-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

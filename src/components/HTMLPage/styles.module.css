@@ -1,0 +1,46 @@
+.wrapper {
+  width: 100%;
+}
+
+.frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #0f172a;
+}
+
+/* Standalone page: fill everything below the navbar. */
+.fullViewport {
+  height: calc(100dvh - var(--ifm-navbar-height));
+  min-height: 480px;
+}
+
+.fullViewport .frame {
+  height: 100%;
+}
+
+/* Inside a doc or another page: readable width, capped height. */
+.embedded {
+  width: min(80%, 1100px);
+  margin: 2rem auto;
+}
+
+.embedded .frame {
+  height: 70vh;
+  min-height: 420px;
+  border: 1px solid var(--hub-surface-border, rgba(109, 63, 240, 0.16));
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(24, 16, 51, 0.16);
+}
+
+@media screen and (max-width: 996px) {
+  .embedded {
+    width: 100%;
+    margin: 1.25rem auto;
+  }
+
+  .embedded .frame {
+    height: 60vh;
+    min-height: 320px;
+  }
+}

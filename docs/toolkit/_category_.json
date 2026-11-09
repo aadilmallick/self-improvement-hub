@@ -1,0 +1,11 @@
+{
+  "label": "Toolkit",
+  "position": 6,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Toolkit",
+    "description": "Templates, checklists, and protocols you can copy into whatever app you already use."
+  }
+}

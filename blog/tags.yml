@@ -1,19 +1,34 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+habits:
+  label: Habits
+  permalink: /habits
+  description: Building, shrinking, and killing behaviours.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+focus:
+  label: Focus
+  permalink: /focus
+  description: Attention, deep work, and the war for it.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+dopamine:
+  label: Dopamine
+  permalink: /dopamine
+  description: Motivation, reward prediction, and baseline.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+systems:
+  label: Systems
+  permalink: /systems
+  description: Reviews, goals, and the scaffolding of a week.
+
+sleep:
+  label: Sleep
+  permalink: /sleep
+  description: The input that decides everything else.
+
+learning:
+  label: Learning
+  permalink: /learning
+  description: Memory, reading, and note-taking.
+
+meta:
+  label: Meta
+  permalink: /meta
+  description: Notes about the hub itself.

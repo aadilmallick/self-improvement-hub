@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- 
+    Color Palette Used: "Deep Senex & Cybernetic Teal" (Vibrant Slate #0F172A, Deep Indigo #4F46E5, Vibrant Teal #14B8A6, Warm Amber #F59E0B, Crimson Rose #F43F5E, Slate Text #F8FAFC)
+    Confirmation: NEITHER Mermaid JS NOR SVG elements were used anywhere in this document. All visuals use Canvas (Chart.js) or styled Tailwind HTML elements with standard Unicode indicators.
+    Strategic Narrative Plan:
+      1. Executive Overview & Puer-Senex Dynamic Callout.
+      2. Diagnostic Psychodynamics: Deep dive into the Pluripotent Stem Cell Dilemma, Provisional Life, and Failure to Constellate.
+      3. Comparative Metrics & Behavioral Analytics (Radar & Bar Visualizations).
+      4. Universal Mindset Shifts & 4 Daily Thought Exercises (Potential Severing, Cognitive Defusion, Drab Work, Negative Visualization).
+      5. Domain-Specific Execution Protocols: Software Engineering (Unison/Founder), Music (One-Man Band), Writing (Novel Manuscripts), and Familial Individuation.
+      6. Daily 24-Hour Operational Architecture & Dopamine Energy Map (Line Visualization).
+      7. Interactive Puer-to-Senex Diagnostic & Daily Protocol Tool.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinical & Strategic Remediation of the Puer Aeternus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            senexBg: '#0F172A',
+            senexCard: '#1E293B',
+            senexBorder: '#334155',
+            puerTeal: '#14B8A6',
+            puerIndigo: '#6366F1',
+            puerAmber: '#F59E0B',
+            puerRose: '#F43F5E',
+            senexText: '#F8FAFC'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      height: 320px;
+      max-height: 380px;
+    }
+    @media (min-width: 768px) {
+      .chart-container {
+        height: 360px;
+      }
+    }
+    body {
+      background-color: #0F172A;
+      color: #F8FAFC;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0F172A;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="custom-scrollbar min-h-screen flex flex-col">
+
+  <!-- Sticky Header Nav -->
+  <header class="sticky top-0 z-50 bg-senexBg/90 backdrop-blur border-b border-senexBorder">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <span class="text-2xl">🏛️</span>
+        <div>
+          <h1 class="text-lg font-bold tracking-wide text-puerTeal">THE SENEX Crucible</h1>
+          <p class="text-xs text-slate-400">Puer Aeternus Remediation & Authentic Execution System</p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+        <a href="#psychodynamics" class="hover:text-puerTeal transition">Psychodynamics</a>
+        <a href="#visualizations" class="hover:text-puerTeal transition">Archetype Analytics</a>
+        <a href="#exercises" class="hover:text-puerTeal transition">Daily Exercises</a>
+        <a href="#domains" class="hover:text-puerTeal transition">Domain Protocols</a>
+        <a href="#schedule" class="hover:text-puerTeal transition">Operational Schedule</a>
+        <a href="#diagnostic" class="hover:text-puerTeal transition">Diagnostic Tool</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 space-y-12 w-full">
+
+    <!-- Executive Summary Banner -->
+    <section class="bg-gradient-to-r from-senexCard via-slate-800 to-senexCard border border-senexBorder rounded-2xl p-6 md:p-8 shadow-xl">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-3 max-w-3xl">
+          <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-puerIndigo/20 text-puerIndigo border border-puerIndigo/30">
+            Clinical Diagnostic & Operational Blueprint
+          </div>
+          <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            Overcoming the <span class="text-puerTeal">Puer Aeternus</span> Mindset
+          </h2>
+          <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+            A unified analytical and behavioral framework designed to transition from the trap of unfulfilled potentiality, meta-optimization loops, and provisional living into the grounded discipline of the integrated <strong class="text-puerTeal">Senex</strong>. Purpose-built for high-cognitive engineering, multi-instrumental composition, and authentic literary craft.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-3 w-full md:w-auto">
+          <div class="bg-senexBg p-4 rounded-xl border border-senexBorder text-center">
+            <span class="block text-2xl font-bold text-puerRose">0%</span>
+            <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Tolerance for Draft Drift</span>
+          </div>
+          <div class="bg-senexBg p-4 rounded-xl border border-senexBorder text-center">
+            <span class="block text-2xl font-bold text-puerTeal">100%</span>
+            <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Artifact Validation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: Psychodynamics & Symptomatology -->
+    <section id="psychodynamics" class="space-y-6">
+      <div class="border-l-4 border-puerTeal pl-4">
+        <h2 class="text-2xl font-bold text-white">1. Theoretical Foundations & Psychodynamics</h2>
+        <p class="text-slate-400 text-sm">Understanding the internal anatomy of the eternal youth complex</p>
+      </div>
+
+      <p class="text-slate-300 text-base leading-relaxed">
+        The <em>puer aeternus</em> ( Latin for "eternal youth" ) represents a structural arrest in psychological maturation. Coined in analytical psychology by Carl Jung and expanded by Marie-Louise von Franz, it describes an individual trapped in adolescent potentiality. The puer resists the binding nature of time, hard commitment, and physical routine, maintaining an illusory detachment from mundane reality while entertaining grandiose visions of future brilliance.
+      </p>
+
+      <!-- Key Concepts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-3">
+          <div class="text-puerAmber text-xl font-bold flex items-center gap-2">
+            <span>⚖️</span> The Puer-Senex Syzygy
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            The puer exists in a structural syzygy with the <strong>senex</strong> ( maturity, limitation, time, craft ). When split, the puer sees structure as a prison and routine as creative death. True maturity requires marrying puer imagination with senex containment—using discipline to give form to vision.
+          </p>
+        </div>
+
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-3">
+          <div class="text-puerRose text-xl font-bold flex items-center gap-2">
+            <span>🧬</span> Pluripotent Stem Cell Trap
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            A pluripotent cell can become any tissue, but to actualize, it must commit to a single lineage and surrender all other possibilities. The puer suffers acute terror at this crossroads: picking one craft ( backend engineering, specific album production ) feels like an unbearable execution of alternative identities.
+          </p>
+        </div>
+
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-3">
+          <div class="text-puerTeal text-xl font-bold flex items-center gap-2">
+            <span>⏳</span> The Provisional Life
+          </div>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Living as though real life hasn't started yet. Current jobs, coding tasks, or practice sessions are treated as temporary stepping stones while waiting for destiny to magically arrive. Detachment shields the ego from failure: if you never fully invest, poor output is excused as indifference.
+          </p>
+        </div>
+      </div>
+
+      <!-- Specific Pathologies Breakdown Table -->
+      <div class="bg-senexCard rounded-xl border border-senexBorder overflow-hidden">
+        <div class="p-4 bg-slate-800/60 border-b border-senexBorder">
+          <h3 class="font-bold text-slate-200 text-base">Operational Diagnostic Matrix: Puer vs. Integrated Senex</h3>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-300">
+            <thead class="bg-slate-900/50 text-xs uppercase text-slate-400">
+              <tr>
+                <th class="p-4">Operational Dimension</th>
+                <th class="p-4 text-puerRose">Puer Aeternus Pathology</th>
+                <th class="p-4 text-puerTeal">Integrated Senex Adult</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-senexBorder">
+              <tr>
+                <td class="p-4 font-semibold text-white">Work Friction & Boredom</td>
+                <td class="p-4 text-slate-400">Flees immediately when tasks turn drab, repetitive, or mechanically tedious. Seeks new shiny dopamine.</td>
+                <td class="p-4 text-slate-200">Embraces drab mechanical drills and tedious debugging as the exact price required for authentic mastery.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Workflow & Productivity</td>
+                <td class="p-4 text-slate-400">Meta-optimization loops: endless tool evaluation, schedule tweaking, system redesign without output.</td>
+                <td class="p-4 text-slate-200">Direct contact with work: rapid feedback loops, minimum viable execution, and raw production volume.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Ego & Output Identity</td>
+                <td class="p-4 text-slate-400">Defensive arrogance: maintains unearned superiority while producing zero peer-reviewed artifacts.</td>
+                <td class="p-4 text-slate-200">Grounded self-efficacy: calibrates self-worth strictly through completed, published, and validated work.</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-semibold text-white">Project Finish Rate</td>
+                <td class="p-4 text-slate-400">Failure to constellate: dozens of half-configured repos, unarranged DAW loops, elaborate worldbuilding notes.</td>
+                <td class="p-4 text-slate-200">Relentless finishing mandate: completes, mixes, merges, and publishes projects within hard time constraints.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Archetype Analytics (Charts Section) -->
+    <section id="visualizations" class="space-y-6">
+      <div class="border-l-4 border-puerIndigo pl-4">
+        <h2 class="text-2xl font-bold text-white">2. Behavioral Analytics & Archetypal Profiles</h2>
+        <p class="text-slate-400 text-sm">Visualizing the shift from psychological inertia to concrete execution</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Chart 1 Container -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-100">Puer vs. Senex Capability Radar</h3>
+            <p class="text-xs text-slate-400">Comparison across five core psychological dimensions of work.</p>
+          </div>
+          <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/50 p-3 rounded-lg border border-senexBorder">
+            <strong>Key Insight:</strong> The unintegrated Puer scores high in ideological novelty but collapses in friction tolerance and structural finishing. Senex integration bridges this deficit without destroying vision.
+          </p>
+        </div>
+
+        <!-- Chart 2 Container -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-100">Daily Energy & Time Allocation</h3>
+            <p class="text-xs text-slate-400">Meta-optimization traps versus structured direct work execution.</p>
+          </div>
+          <div class="chart-container">
+            <canvas id="timeAllocationChart"></canvas>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/50 p-3 rounded-lg border border-senexBorder">
+            <strong>Key Insight:</strong> The Puer spends 65%+ of available cognitive energy optimizing tools and daydreaming. The restructured Senex budget allocates 85% directly to output artifacts.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: Universal Mindset Shifts & Daily Thought Exercises -->
+    <section id="exercises" class="space-y-6">
+      <div class="border-l-4 border-puerAmber pl-4">
+        <h2 class="text-2xl font-bold text-white">3. Universal Mindset Shifts & Daily Thought Exercises</h2>
+        <p class="text-slate-400 text-sm">Cognitive protocols to dismantle psychological resistance and build Senex discipline</p>
+      </div>
+
+      <!-- Core Curative Mechanisms -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-3">
+          <h3 class="text-base font-bold text-puerTeal flex items-center gap-2">
+            <span>🪵</span> The Curative Power of "Drab Work"
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Inspiration-driven labor only reinforces the puerile fantasy. The definitive psychological cure is <strong>drab work</strong>—the voluntary endurance of mechanical repetition, dry specification reading, slow debugging, and tedious metronomic drills. Drab work anchors the floating psyche to physical reality, building authentic tolerance for friction.
+          </p>
+        </div>
+
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-3">
+          <h3 class="text-base font-bold text-puerRose flex items-center gap-2">
+            <span>⚡</span> Asymmetric Focus & Dopamine Reset
+          </h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Modern hyper-stimulation ( doomscrolling, phone on toilet, instant media ) ruins dopamine baseline, making deliberate craft feel agonizingly slow. You cannot cure this through comfortable balance; you must enter an <strong>Extreme Work Season</strong> that eliminates digital junk and channels all energy into singular goals.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Protocols Step-by-Step Card Flow (HTML Structured Diagram - NO SVG) -->
+      <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-6">
+        <h3 class="text-lg font-bold text-slate-100 border-b border-senexBorder pb-3">
+          Daily Cognitive Remediation Protocols
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Protocol 1 -->
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-senexBorder space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-puerIndigo bg-puerIndigo/10 px-2 py-1 rounded">Exercise 1</span>
+              <span class="text-xs text-slate-400">Duration: 5 Mins (Morning)</span>
+            </div>
+            <h4 class="font-bold text-slate-100 text-base">The Potential-Severing Meditation</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Sit in complete silence. Visualize a corridor with 99 open doors representing alternate unlived lives ( famous producer, theoretical physicist, globetrotter ). Systematically walk down the hall, visualising closing and locking each door until only 1 door remains: your singular execution path for today. Lean into the grief of lost options and affirm that power exists only in bound execution.
+            </p>
+          </div>
+
+          <!-- Protocol 2 -->
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-senexBorder space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-puerTeal bg-puerTeal/10 px-2 py-1 rounded">Exercise 2</span>
+              <span class="text-xs text-slate-400">Duration: Real-Time / Ongoing</span>
+            </div>
+            <h4 class="font-bold text-slate-100 text-base">Cognitive Defusion from Resistance</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              When internal voices rationalise delay, complain about repetitive drills, or demand tool optimization, defuse from them. Personify this voice as a petulant, uninitiated juvenile entity demanding unearned comfort. Laugh at its fragility, recognize its demands as absurd, and physically begin the work without engaging in internal debate.
+            </p>
+          </div>
+
+          <!-- Protocol 3 -->
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-senexBorder space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-puerAmber bg-puerAmber/10 px-2 py-1 rounded">Exercise 3</span>
+              <span class="text-xs text-slate-400">Duration: 60 Mins (Daily Block)</span>
+            </div>
+            <h4 class="font-bold text-slate-100 text-base">Drab Work Immersion Protocol</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Select your most unglamorous current bottleneck ( reading AWS networking specs, isolation metronome drills on bass, reviewing raw manuscript prose ). Set a timer for 60 minutes. Commit to absolute tactile engagement. When boredom or itch to check alternate tabs arises, hold steady focus on the single task until the bell rings.
+            </p>
+          </div>
+
+          <!-- Protocol 4 -->
+          <div class="bg-slate-900/80 p-5 rounded-lg border border-senexBorder space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-puerRose bg-puerRose/10 px-2 py-1 rounded">Exercise 4</span>
+              <span class="text-xs text-slate-400">Duration: 5 Mins (Dawn)</span>
+            </div>
+            <h4 class="font-bold text-slate-100 text-base">Negative Visualization & Radical Liability</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Contemplate the sudden loss of your health, cognitive faculties, or loved ones. Ground yourself in the present reality that work is an unearned finite privilege, not a burdensome obligation. Immediately transition into authentic gratitude, take absolute personal liability for your current career state, and ban blaming past circumstances.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Personalized Domain Protocols -->
+    <section id="domains" class="space-y-6">
+      <div class="border-l-4 border-puerRose pl-4">
+        <h2 class="text-2xl font-bold text-white">4. Domain-Specific Authentic Execution Blueprint</h2>
+        <p class="text-slate-400 text-sm">Tailored strategic mandates aligned with your authentic identity and goals</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Software Engineering Block -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center space-x-2 text-puerTeal">
+              <span class="text-2xl">💻</span>
+              <h3 class="font-bold text-lg text-white">Software Engineering</h3>
+            </div>
+            <p class="text-xs text-puerIndigo font-semibold">Junior @ Unison ($85k) ➔ Senior Architect / Founder</p>
+            
+            <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+              <p><strong>Puer Pathology:</strong> Framework chasing, tutorial hopping, over-relying on AI code gen to shortcut understanding, endlessly tweaking productivity setups during work hours.</p>
+              <p><strong>Senex Mandate:</strong> Absolute ban on productivity system re-tooling. Direct immersion in AWS backend infrastructure, GraphQL network traces, and production logs.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-lg border border-senexBorder text-xs text-puerTeal font-medium">
+            🎯 <strong>Metric of Truth:</strong> Merged PRs, resolved production bugs, and scalable architecture docs. Zero credit for planning.
+          </div>
+        </div>
+
+        <!-- Music Production Block -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center space-x-2 text-puerAmber">
+              <span class="text-2xl">🎼</span>
+              <h3 class="font-bold text-lg text-white">One-Man Band Music</h3>
+            </div>
+            <p class="text-xs text-puerAmber font-semibold">YouTube Multi-Instrumentalist & Producer</p>
+            
+            <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+              <p><strong>Puer Pathology:</strong> Fantasizing about viral subscriber counts and virtuoso arrangements while abandoning projects when mixing or mechanical practice gets tedious.</p>
+              <p><strong>Senex Mandate:</strong> Uncouple creative ideation from physical practice. Enforce a hard <em>Finishing Mandate</em>: track, mix, master, and release every cover within strict time constraints.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-lg border border-senexBorder text-xs text-puerAmber font-medium">
+            🎯 <strong>Metric of Truth:</strong> Completed multi-track audio assets and metronomic practice hours logged across Guitar, Piano, and Bass.
+          </div>
+        </div>
+
+        <!-- Novel Writing Block -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center space-x-2 text-puerRose">
+              <span class="text-2xl">📝</span>
+              <h3 class="font-bold text-lg text-white">Literary Craft & Fiction</h3>
+            </div>
+            <p class="text-xs text-puerRose font-semibold">Novel Manuscript & Anime Adaptation Vision</p>
+            
+            <div class="space-y-2 text-xs text-slate-300 leading-relaxed">
+              <p><strong>Puer Pathology:</strong> Building endless worldbuilding lore, magic mechanics, and character notes without ever drafting finished prose manuscript pages.</p>
+              <p><strong>Senex Mandate:</strong> Demystify writing as manual labor. Enforce a daily non-negotiable quota of 500 draft words moving forward without real-time editing.</p>
+            </div>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-lg border border-senexBorder text-xs text-puerRose font-medium">
+            🎯 <strong>Metric of Truth:</strong> Daily word count of raw manuscript text. Lore notes do not count as progress.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Socio-Familial Individuation Sub-card -->
+      <div class="bg-gradient-to-r from-slate-900 via-senexCard to-slate-900 p-6 rounded-xl border border-senexBorder flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="space-y-1">
+          <h4 class="font-bold text-white text-base flex items-center gap-2">
+            <span>🛡️</span> Socio-Familial Individuation & Authentic Boundaries
+          </h4>
+          <p class="text-xs text-slate-300 max-w-3xl">
+            Break inauthentic compliance. Stop hiding creative ambitions (YouTube band, novel writing, founder vision) to avoid conflict or seek approval. Step into uncomfortable, honest conversations with parents and peers, state your trajectory clearly, and claim 100% liability for your life.
+          </p>
+        </div>
+        <div class="bg-puerIndigo/20 border border-puerIndigo/40 px-4 py-2 rounded-lg text-puerIndigo font-bold text-xs whitespace-nowrap">
+          Zero Passive Avoidance
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 5: Operational Architecture (Schedule & Energy Map) -->
+    <section id="schedule" class="space-y-6">
+      <div class="border-l-4 border-puerTeal pl-4">
+        <h2 class="text-2xl font-bold text-white">5. Daily Operational Architecture (04:00 – 21:00)</h2>
+        <p class="text-slate-400 text-sm">The 24-hour Senex execution container designed for continuous output</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Detailed Timetable (2 Cols) -->
+        <div class="lg:col-span-2 bg-senexCard p-6 rounded-xl border border-senexBorder space-y-4">
+          <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+            <span>⏰</span> Master Schedule Execution Matrix
+          </h3>
+          <div class="space-y-3 text-xs">
+            
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-puerTeal w-32">04:00 – 05:00</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Spiritual & Cognitive Foundation:</strong> Wake 04:00 sharp. Hygiene, prayer, Quranic memorization, Anki spaced repetition. Zero phone/social media.
+              </div>
+              <span class="bg-puerTeal/10 text-puerTeal px-2 py-1 rounded text-2xs font-semibold">Dopamine Reset</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-puerAmber w-32">05:00 – 08:30</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Authentic Creative Deep Work:</strong> 60 mins DAW production & mixing. 150 mins multitrack one-man band arrangements.
+              </div>
+              <span class="bg-puerAmber/10 text-puerAmber px-2 py-1 rounded text-2xs font-semibold">Creative Primary</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-puerRose w-32">08:30 – 09:00</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Physiological Activation:</strong> Jump rope circuit / 0.5 mile run, cold shower, bone broth / lemon water fast maintained until 09:00.
+              </div>
+              <span class="bg-puerRose/10 text-puerRose px-2 py-1 rounded text-2xs font-semibold">Physical Resilience</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-puerIndigo w-32">09:00 – 17:00</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Software Engineering Mastery:</strong> Deep Unison production execution (AWS, GraphQL, distributed logs). Ban tool tweaking; focus on PR merges.
+              </div>
+              <span class="bg-puerIndigo/10 text-puerIndigo px-2 py-1 rounded text-2xs font-semibold">Professional Craft</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-puerTeal w-32">17:00 – 19:30</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Modular Instrumental Drills:</strong> 17:00 Guitar (accuracy), 18:00 Piano (harmony), 19:00 Bass (metronomic groove).
+              </div>
+              <span class="bg-puerTeal/10 text-puerTeal px-2 py-1 rounded text-2xs font-semibold">Physical Skill</span>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-senexBorder flex flex-col md:flex-row md:items-center justify-between gap-2">
+              <span class="font-bold text-slate-400 w-32">19:30 – 21:00</span>
+              <div class="flex-grow text-slate-300">
+                <strong>Video Editing, Fiction & Wind-down:</strong> 30 mins video editing workflow. 500 words manuscript fiction, red light reading, sleep at 21:00.
+              </div>
+              <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-2xs font-semibold">Constellation & Sleep</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Energy Flow Line Chart (1 Col) -->
+        <div class="bg-senexCard p-6 rounded-xl border border-senexBorder flex flex-col justify-between space-y-4">
+          <div>
+            <h3 class="text-base font-bold text-slate-100">Cognitive Energy & Dopamine Curve</h3>
+            <p class="text-xs text-slate-400">Restructured baseline throughout the 04:00 - 21:00 container.</p>
+          </div>
+          <div class="chart-container">
+            <canvas id="energyLineChart"></canvas>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/50 p-3 rounded-lg border border-senexBorder">
+            <strong>Energy Dynamic:</strong> Front-loading authentic creative work at 05:00 secures primary goals before professional cognitive depletion occurs.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: Interactive Diagnostic & Daily Protocol Checker -->
+    <section id="diagnostic" class="space-y-6">
+      <div class="border-l-4 border-puerIndigo pl-4">
+        <h2 class="text-2xl font-bold text-white">6. Interactive Puer Risk Diagnostic & Daily Audit</h2>
+        <p class="text-slate-400 text-sm">Assess your real-time risk of falling into the provisional life trap</p>
+      </div>
+
+      <div class="bg-senexCard p-6 rounded-xl border border-senexBorder space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Quiz Inputs -->
+          <div class="space-y-4">
+            <h3 class="font-bold text-slate-200 text-sm border-b border-senexBorder pb-2">Daily Behavioral Audit Checklist</h3>
+            
+            <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="q1" class="mt-1 rounded bg-slate-900 border-senexBorder text-puerTeal focus:ring-0" onchange="calculateScore()">
+              <span>I spent over 30 minutes today optimizing tools/schedules instead of producing code/music/text.</span>
+            </label>
+
+            <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="q2" class="mt-1 rounded bg-slate-900 border-senexBorder text-puerTeal focus:ring-0" onchange="calculateScore()">
+              <span>I felt an urge to abandon my current project when encountering a drab or tedious roadblock.</span>
+            </label>
+
+            <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="q3" class="mt-1 rounded bg-slate-900 border-senexBorder text-puerTeal focus:ring-0" onchange="calculateScore()">
+              <span>I engaged in high-dopamine digital consumption (social media, doomscrolling) before 09:00 AM.</span>
+            </label>
+
+            <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="q4" class="mt-1 rounded bg-slate-900 border-senexBorder text-puerTeal focus:ring-0" onchange="calculateScore()">
+              <span>I postponed writing prose or mixing audio because it felt imperfect or uninspired.</span>
+            </label>
+
+            <label class="flex items-start space-x-3 text-xs text-slate-300 cursor-pointer">
+              <input type="checkbox" id="q5" class="mt-1 rounded bg-slate-900 border-senexBorder text-puerTeal focus:ring-0" onchange="calculateScore()">
+              <span>I treated my current engineering work at Unison as a temporary burden rather than an arena for mastery.</span>
+            </label>
+          </div>
+
+          <!-- Score Output Display -->
+          <div class="bg-slate-900 p-6 rounded-xl border border-senexBorder flex flex-col justify-between items-center text-center space-y-4">
+            <h3 class="font-bold text-slate-300 text-xs uppercase tracking-wider">Current Puer Trap Index</h3>
+            
+            <div id="scoreDisplay" class="text-5xl font-extrabold text-puerTeal">
+              0%
+            </div>
+
+            <div id="statusBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-puerTeal/20 text-puerTeal border border-puerTeal/30">
+              SENEX INTEGRATED STATE
+            </div>
+
+            <p id="recommendationText" class="text-xs text-slate-400 leading-relaxed">
+              Excellent. You are currently maintaining operational discipline and executing direct work without falling into meta-optimization traps.
+            </p>
+
+            <button onclick="resetAudit()" class="w-full py-2 bg-senexCard hover:bg-slate-800 text-slate-300 text-xs font-semibold rounded border border-senexBorder transition">
+              Reset Daily Audit
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-senexBorder bg-senexBg py-6 text-center text-xs text-slate-500">
+    <p>Clinical & Archetypal Remediation of the Puer Aeternus • System Architecture for Authentic Output</p>
+  </footer>
+
+  <!-- JavaScript Chart Initialization & Interactive Logic -->
+  <script>
+    // Tooltip title callback handler for array labels
+    const tooltipTitleCallback = function(tooltipItems) {
+      const item = tooltipItems[0];
+      let label = item.chart.data.labels[item.dataIndex];
+      if (Array.isArray(label)) {
+        return label.join(' ');
+      } else {
+        return label;
+      }
+    };
+
+    // Chart 1: Radar Chart (Puer vs Senex)
+    const ctxRadar = document.getElementById('radarChart').getContext('2d');
+    new Chart(ctxRadar, {
+      type: 'radar',
+      data: {
+        labels: [
+          ['Friction', 'Tolerance'],
+          ['Ideological', 'Novelty'],
+          ['Output', 'Constellation'],
+          ['Temporal', 'Awareness'],
+          ['Boundary', 'Autonomy']
+        ],
+        datasets: [
+          {
+            label: 'Unintegrated Puer',
+            data: [20, 95, 25, 30, 40],
+            backgroundColor: 'rgba(244, 63, 94, 0.2)',
+            borderColor: '#F43F5E',
+            borderWidth: 2,
+            pointBackgroundColor: '#F43F5E'
+          },
+          {
+            label: 'Integrated Senex',
+            data: [90, 85, 95, 90, 85],
+            backgroundColor: 'rgba(20, 184, 166, 0.2)',
+            borderColor: '#14B8A6',
+            borderWidth: 2,
+            pointBackgroundColor: '#14B8A6'
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+          r: {
+            angleLines: { color: '#334155' },
+            grid: { color: '#334155' },
+            pointLabels: { color: '#CBD5E1', font: { size: 10 } },
+            ticks: { display: false, backdropColor: 'transparent' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#F8FAFC', font: { size: 11 } } },
+          tooltip: {
+            callbacks: { title: tooltipTitleCallback }
+          }
+        }
+      }
+    });
+
+    // Chart 2: Time Allocation Bar Chart
+    const ctxTime = document.getElementById('timeAllocationChart').getContext('2d');
+    new Chart(ctxTime, {
+      type: 'bar',
+      data: {
+        labels: [
+          ['Meta-Optimization', '& Tooling'],
+          ['Unfocused', 'Daydreaming'],
+          ['Direct Engineering', '& Code'],
+          ['Music Tracking', '& Mixing'],
+          ['Manuscript Prose', 'Drafting']
+        ],
+        datasets: [
+          {
+            label: 'Puer Trajectory (Hours/Wk)',
+            data: [25, 20, 12, 5, 2],
+            backgroundColor: '#F59E0B'
+          },
+          {
+            label: 'Restructured Senex (Hours/Wk)',
+            data: [2, 3, 40, 15, 7],
+            backgroundColor: '#6366F1'
+          }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+          x: {
+            ticks: { color: '#CBD5E1', font: { size: 10 } },
+            grid: { color: '#334155' }
+          },
+          y: {
+            ticks: { color: '#CBD5E1', font: { size: 10 } },
+            grid: { color: '#334155' }
+          }
+        },
+        plugins: {
+          legend: { labels: { color: '#F8FAFC', font: { size: 11 } } },
+          tooltip: {
+            callbacks: { title: tooltipTitleCallback }
+          }
+        }
+      }
+    });
+
+    // Chart 3: Line Chart (Daily Energy & Dopamine Curve)
+    const ctxEnergy = document.getElementById('energyLineChart').getContext('2d');
+    new Chart(ctxEnergy, {
+      type: 'line',
+      data: {
+        labels: ['04:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+        datasets: [{
+          label: 'Cognitive Energy / Focus',
+          data: [85, 95, 80, 75, 70, 85, 40],
+          borderColor: '#14B8A6',
+          backgroundColor: 'rgba(20, 184, 166, 0.1)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        scales: {
+          x: { ticks: { color: '#CBD5E1', font: { size: 10 } }, grid: { color: '#334155' } },
+          y: { ticks: { color: '#CBD5E1', font: { size: 10 } }, grid: { color: '#334155' }, min: 0, max: 100 }
+        },
+        plugins: {
+          legend: { labels: { color: '#F8FAFC', font: { size: 11 } } },
+          tooltip: {
+            callbacks: { title: tooltipTitleCallback }
+          }
+        }
+      }
+    });
+
+    // Diagnostic Quiz Logic
+    function calculateScore() {
+      const q1 = document.getElementById('q1').checked;
+      const q2 = document.getElementById('q2').checked;
+      const q3 = document.getElementById('q3').checked;
+      const q4 = document.getElementById('q4').checked;
+      const q5 = document.getElementById('q5').checked;
+
+      let count = 0;
+      if (q1) count++;
+      if (q2) count++;
+      if (q3) count++;
+      if (q4) count++;
+      if (q5) count++;
+
+      const percentage = (count / 5) * 100;
+      const scoreDisplay = document.getElementById('scoreDisplay');
+      const statusBadge = document.getElementById('statusBadge');
+      const recommendationText = document.getElementById('recommendationText');
+
+      scoreDisplay.innerText = percentage + '%';
+
+      if (percentage === 0) {
+        scoreDisplay.className = 'text-5xl font-extrabold text-puerTeal';
+        statusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-puerTeal/20 text-puerTeal border border-puerTeal/30';
+        statusBadge.innerText = 'SENEX INTEGRATED STATE';
+        recommendationText.innerText = 'Excellent. You are currently maintaining operational discipline and executing direct work without falling into meta-optimization traps.';
+      } else if (percentage <= 40) {
+        scoreDisplay.className = 'text-5xl font-extrabold text-puerAmber';
+        statusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-puerAmber/20 text-puerAmber border border-puerAmber/30';
+        statusBadge.innerText = 'MODERATE PUER RESISTANCE';
+        recommendationText.innerText = 'Minor drift detected. Execute the 60-Minute Drab Work Immersion Protocol and cease any active tool tweaking immediately.';
+      } else {
+        scoreDisplay.className = 'text-5xl font-extrabold text-puerRose';
+        statusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-puerRose/20 text-puerRose border border-puerRose/30';
+        statusBadge.innerText = 'HIGH PROVISIONAL RISK';
+        recommendationText.innerText = 'Warning: You are trapped in meta-optimization, high dopamine seeking, or provisional thinking. Initiate the Potential-Severing Meditation and lock down phone isolation immediately.';
+      }
+    }
+
+    function resetAudit() {
+      document.getElementById('q1').checked = false;
+      document.getElementById('q2').checked = false;
+      document.getElementById('q3').checked = false;
+      document.getElementById('q4').checked = false;
+      document.getElementById('q5').checked = false;
+      calculateScore();
+    }
+  </script>
+</body>
+</html>

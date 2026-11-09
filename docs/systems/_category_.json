@@ -1,0 +1,11 @@
+{
+  "label": "Systems & rituals",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Systems & rituals",
+    "description": "The scaffolding: weekly reviews, deep work, environment design, and quarterly goals."
+  }
+}

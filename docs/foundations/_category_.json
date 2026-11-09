@@ -1,0 +1,11 @@
+{
+  "label": "Foundations",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Foundations",
+    "description": "The operating principles: identity, habit mechanics, attention, and motivation."
+  }
+}
