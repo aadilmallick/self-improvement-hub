@@ -26,7 +26,9 @@
 }
 
 .embedded .frame {
-  height: 70vh;
+  /* Viewport-designed artifacts need close to a full screen of height,
+     otherwise their centred content is clipped at the top. */
+  height: min(85vh, 880px);
   min-height: 420px;
   border: 1px solid var(--hub-surface-border, rgba(109, 63, 240, 0.16));
   border-radius: 16px;
@@ -40,7 +42,7 @@
   }
 
   .embedded .frame {
-    height: 60vh;
+    height: min(75vh, 720px);
     min-height: 320px;
   }
 }
